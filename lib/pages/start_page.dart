@@ -49,7 +49,17 @@ class _StartPageState extends State<StartPage> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new AlbumCover(playlist.currentTrack.coverUrl),
+            new Container(
+              height: 275.0,
+              width: 275.0,
+              child: new AlbumCover(
+                playlist.currentTrack.coverUrl,
+                nextTrack: handleNext,
+                previousTrack: handlePrevious,
+                hasNext: playlist.hasNext,
+                hasPrevious: playlist.hasPrevious,
+              ),
+            ),
             new TrackMeta(track: playlist.currentTrack),
             new TrackControls(
               handleNext: handleNext,

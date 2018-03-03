@@ -38,11 +38,7 @@ class TrackMetaState extends State<TrackMeta>
     ).animate(
       new CurvedAnimation(
         parent: _textAnimationController,
-        curve: new Interval(
-          0.0,
-          1.0,
-          curve: Curves.ease,
-        ),
+        curve: Curves.easeIn,
       ),
     );
 
