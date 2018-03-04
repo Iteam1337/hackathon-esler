@@ -19,15 +19,23 @@ class _StartPageState extends State<StartPage> {
     });
   }
 
+  void startPlaying() {
+    if (!isPlaying) {
+      isPlaying = true;
+    }
+  }
+
   void handlePrevious() {
     this.setState(() {
       playlist.previousTrack();
+      startPlaying();
     });
   }
 
   void handleNext() {
     this.setState(() {
       playlist.nextTrack();
+      startPlaying();
     });
   }
 
@@ -37,10 +45,7 @@ class _StartPageState extends State<StartPage> {
       body: new Container(
         decoration: new BoxDecoration(
           gradient: new LinearGradient(
-            colors: [
-              Colors.purple[200],
-              Colors.purple[400],
-            ],
+            colors: [Colors.purple[200], Colors.purple[400]],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             stops: [0.0, 1.0],

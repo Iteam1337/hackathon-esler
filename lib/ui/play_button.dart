@@ -21,7 +21,7 @@ class PlayButton extends StatelessWidget {
           ),
         ],
       ),
-      padding: new EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       child: new IconButton(
         onPressed: onPressed,
         iconSize: 40.0,

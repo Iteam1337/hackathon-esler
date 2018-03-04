@@ -1,6 +1,5 @@
-import 'package:esler/ui/next_button.dart';
 import 'package:esler/ui/play_button.dart';
-import 'package:esler/ui/previous_button.dart';
+import 'package:esler/ui/skip_button.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -28,15 +27,20 @@ class TrackControls extends StatelessWidget {
       child: new Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          new PreviousButton(
+          new SkipButton(
+            Icons.skip_previous,
             disabled: hasPrevious != true,
             onPressed: handlePrevious,
           ),
-          new PlayButton(
-            isPlaying,
-            onPressed: handlePlay,
+          new Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: new PlayButton(
+              isPlaying,
+              onPressed: handlePlay,
+            ),
           ),
-          new NextButton(
+          new SkipButton(
+            Icons.skip_next,
             disabled: hasNext != true,
             onPressed: handleNext,
           )

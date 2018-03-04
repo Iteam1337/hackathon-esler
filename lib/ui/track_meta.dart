@@ -67,23 +67,22 @@ class TrackMetaState extends State<TrackMeta>
   Widget _buildAnimation(BuildContext context, Widget child) {
     return new Padding(
       padding: padding.value,
-      child: new Column(
-        children: <Widget>[
-          new FadeTransition(
-            opacity: _textAnimation,
-            child: new Text(
-              widget.track.artist,
-              style: new TextStyle(
-                color: Colors.white,
-                fontSize: 21.0,
-                fontWeight: FontWeight.w700,
+      child: new FadeTransition(
+        opacity: _textAnimation,
+        child: new Column(
+          children: <Widget>[
+            new Padding(
+              padding: const EdgeInsets.only(bottom: 6.0),
+              child: new Text(
+                widget.track.artist,
+                style: new TextStyle(
+                  color: Colors.white,
+                  fontSize: 21.0,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
-          ),
-          new Container(height: 6.0),
-          new FadeTransition(
-            opacity: _textAnimation,
-            child: new Text(
+            new Text(
               widget.track.trackName,
               style: new TextStyle(
                 color: Colors.white,
@@ -91,8 +90,8 @@ class TrackMetaState extends State<TrackMeta>
                 fontWeight: FontWeight.w400,
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

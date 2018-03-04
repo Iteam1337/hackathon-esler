@@ -61,6 +61,16 @@ class AlbumCoverState extends State<AlbumCover>
     super.dispose();
   }
 
+  void _handleDismiss(DismissDirection direction) {
+    if (direction == DismissDirection.startToEnd && widget.hasPrevious) {
+      widget.previousTrack();
+    }
+
+    if (direction == DismissDirection.endToStart && widget.hasNext) {
+      widget.nextTrack();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return new FadeTransition(
@@ -68,25 +78,15 @@ class AlbumCoverState extends State<AlbumCover>
       child: new Dismissible(
         resizeDuration: null,
         key: new ObjectKey(widget.coverUrl),
-        onDismissed: (direction) {
-          if (direction == DismissDirection.startToEnd && widget.hasPrevious) {
-            widget.previousTrack();
-          }
-
-          if (direction == DismissDirection.endToStart && widget.hasNext) {
-            widget.nextTrack();
-          }
-        },
+        onDismissed: _handleDismiss,
         child: new Container(
-          height: 275.0,
-          width: 275.0,
           decoration: new BoxDecoration(
             image: new DecorationImage(
               image: new NetworkImage(
                 widget.coverUrl,
               ),
             ),
-            borderRadius: new BorderRadius.circular(5.0),
+            borderRadius: new BorderRadius.circular(8.0),
             boxShadow: [
               new BoxShadow(
                 color: Colors.black45,
