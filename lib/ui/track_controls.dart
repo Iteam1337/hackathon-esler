@@ -22,24 +22,24 @@ class TrackControls extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Padding(
+    return Padding(
       padding: const EdgeInsets.only(top: 40.0),
-      child: new Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          new SkipButton(
+          SkipButton(
             Icons.skip_previous,
             disabled: hasPrevious != true,
             onPressed: handlePrevious,
           ),
-          new Padding(
+          Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: new PlayButton(
+            child: PlayButton(
               isPlaying,
               onPressed: handlePlay,
             ),
           ),
-          new SkipButton(
+          SkipButton(
             Icons.skip_next,
             disabled: hasNext != true,
             onPressed: handleNext,

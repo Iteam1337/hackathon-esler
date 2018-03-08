@@ -14,11 +14,12 @@ class AlbumCover extends StatefulWidget {
     this.previousTrack,
     this.hasNext,
     this.hasPrevious,
-  }) : super(key: key);
+  })
+      : super(key: key);
 
   @override
   AlbumCoverState createState() {
-    return new AlbumCoverState();
+    return AlbumCoverState();
   }
 }
 
@@ -31,12 +32,12 @@ class AlbumCoverState extends State<AlbumCover>
   initState() {
     super.initState();
 
-    _fadeAnimationController = new AnimationController(
-      duration: new Duration(milliseconds: 400),
+    _fadeAnimationController = AnimationController(
+      duration: Duration(milliseconds: 400),
       vsync: this,
     );
 
-    _fadeAnimation = new CurvedAnimation(
+    _fadeAnimation = CurvedAnimation(
       parent: _fadeAnimationController,
       curve: Curves.easeIn,
     );
@@ -73,25 +74,25 @@ class AlbumCoverState extends State<AlbumCover>
 
   @override
   Widget build(BuildContext context) {
-    return new FadeTransition(
+    return FadeTransition(
       opacity: _fadeAnimation,
-      child: new Dismissible(
+      child: Dismissible(
         resizeDuration: null,
-        key: new ObjectKey(widget.coverUrl),
+        key: ObjectKey(widget.coverUrl),
         onDismissed: _handleDismiss,
-        child: new Container(
-          decoration: new BoxDecoration(
-            image: new DecorationImage(
-              image: new NetworkImage(
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage(
                 widget.coverUrl,
               ),
             ),
-            borderRadius: new BorderRadius.circular(8.0),
+            borderRadius: BorderRadius.circular(8.0),
             boxShadow: [
-              new BoxShadow(
+              BoxShadow(
                 color: Colors.black45,
                 blurRadius: 15.0,
-                offset: new Offset(0.0, 20.0),
+                offset: Offset(0.0, 20.0),
                 spreadRadius: -10.0,
               )
             ],

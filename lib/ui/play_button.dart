@@ -8,24 +8,24 @@ class PlayButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      decoration: new BoxDecoration(
-        gradient: new RadialGradient(
+    return Container(
+      decoration: BoxDecoration(
+        gradient: RadialGradient(
           colors: <Color>[Colors.white, Colors.grey[200]],
         ),
         shape: BoxShape.circle,
         boxShadow: [
-          new BoxShadow(
+          BoxShadow(
             color: Colors.white10,
             spreadRadius: 10.0,
           ),
         ],
       ),
       padding: const EdgeInsets.all(10.0),
-      child: new IconButton(
+      child: IconButton(
         onPressed: onPressed,
         iconSize: 40.0,
-        icon: new Icon(
+        icon: Icon(
           isPlaying ? Icons.pause : Icons.play_arrow,
           color: Colors.grey[800],
         ),

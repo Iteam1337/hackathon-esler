@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 
 class StartPage extends StatefulWidget {
   @override
-  _StartPageState createState() => new _StartPageState();
+  _StartPageState createState() => _StartPageState();
 }
 
 class _StartPageState extends State<StartPage> {
   bool isPlaying = false;
-  Playlist playlist = new Playlist();
+  Playlist playlist = Playlist();
 
   void handlePlay() {
     this.setState(() {
@@ -41,23 +41,23 @@ class _StartPageState extends State<StartPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new Container(
-        decoration: new BoxDecoration(
-          gradient: new LinearGradient(
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
             colors: [Colors.purple[200], Colors.purple[400]],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             stops: [0.0, 1.0],
           ),
         ),
-        child: new Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Container(
+            Container(
               height: 275.0,
               width: 275.0,
-              child: new AlbumCover(
+              child: AlbumCover(
                 playlist.currentTrack.coverUrl,
                 nextTrack: handleNext,
                 previousTrack: handlePrevious,
@@ -65,8 +65,8 @@ class _StartPageState extends State<StartPage> {
                 hasPrevious: playlist.hasPrevious,
               ),
             ),
-            new TrackMeta(track: playlist.currentTrack),
-            new TrackControls(
+            TrackMeta(track: playlist.currentTrack),
+            TrackControls(
               handleNext: handleNext,
               handlePlay: handlePlay,
               handlePrevious: handlePrevious,

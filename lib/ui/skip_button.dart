@@ -14,10 +14,10 @@ class SkipButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new IconButton(
+    return IconButton(
       onPressed: onPressed,
       iconSize: 50.0,
-      icon: new Icon(
+      icon: Icon(
         icon,
         color: disabled ? Colors.black12 : Colors.grey[200],
       ),

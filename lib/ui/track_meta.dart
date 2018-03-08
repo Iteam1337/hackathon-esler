@@ -8,7 +8,7 @@ class TrackMeta extends StatefulWidget {
 
   @override
   TrackMetaState createState() {
-    return new TrackMetaState();
+    return TrackMetaState();
   }
 }
 
@@ -22,21 +22,22 @@ class TrackMetaState extends State<TrackMeta>
   initState() {
     super.initState();
 
-    _textAnimationController = new AnimationController(
-      duration: new Duration(milliseconds: 300),
+    _textAnimationController = AnimationController(
+      duration: Duration(milliseconds: 300),
       vsync: this,
     );
 
-    _textAnimation = new CurvedAnimation(
+    _textAnimation = CurvedAnimation(
       parent: _textAnimationController,
       curve: Curves.linear,
     );
 
-    padding = new Tween<EdgeInsets>(
+    padding = Tween<EdgeInsets>(
       begin: const EdgeInsets.only(left: 30.0),
       end: const EdgeInsets.only(left: 0.0),
-    ).animate(
-      new CurvedAnimation(
+    )
+        .animate(
+      CurvedAnimation(
         parent: _textAnimationController,
         curve: Curves.easeIn,
       ),
@@ -65,26 +66,26 @@ class TrackMetaState extends State<TrackMeta>
   }
 
   Widget _buildAnimation(BuildContext context, Widget child) {
-    return new Padding(
+    return Padding(
       padding: padding.value,
-      child: new FadeTransition(
+      child: FadeTransition(
         opacity: _textAnimation,
-        child: new Column(
+        child: Column(
           children: <Widget>[
-            new Padding(
+            Padding(
               padding: const EdgeInsets.only(bottom: 6.0),
-              child: new Text(
+              child: Text(
                 widget.track.artist,
-                style: new TextStyle(
+                style: TextStyle(
                   color: Colors.white,
                   fontSize: 21.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
             ),
-            new Text(
+            Text(
               widget.track.trackName,
-              style: new TextStyle(
+              style: TextStyle(
                 color: Colors.white,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w400,
@@ -98,9 +99,9 @@ class TrackMetaState extends State<TrackMeta>
 
   @override
   Widget build(BuildContext context) {
-    return new Padding(
+    return Padding(
       padding: const EdgeInsets.only(top: 40.0),
-      child: new AnimatedBuilder(
+      child: AnimatedBuilder(
         animation: _textAnimationController,
         builder: _buildAnimation,
       ),
