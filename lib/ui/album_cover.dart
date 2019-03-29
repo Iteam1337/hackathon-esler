@@ -71,11 +71,24 @@ class AlbumCoverState extends State<AlbumCover>
     }
   }
 
+  DismissDirection _handleDismissDirection() {
+    if (!widget.hasNext) {
+      return DismissDirection.startToEnd;
+    }
+
+    if (!widget.hasPrevious) {
+      return DismissDirection.endToStart;
+    }
+
+    return DismissDirection.horizontal;
+  }
+
   @override
   Widget build(BuildContext context) {
     return new FadeTransition(
       opacity: _fadeAnimation,
       child: new Dismissible(
+        direction: _handleDismissDirection(),
         resizeDuration: null,
         key: new ObjectKey(widget.coverUrl),
         onDismissed: _handleDismiss,
